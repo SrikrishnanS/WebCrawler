@@ -8,13 +8,16 @@ import java.util.Map;
 public class WordDensityAnalyzerImpl implements WordDensityAnalyzer {
 
 	public Map<String, Integer> getWordDensity(Collection<String> words) {
-		Map<String,Integer> wordMap = new HashMap<String,Integer>();
+		Map<String, Integer> wordMap = new HashMap<String, Integer>();
 		Iterator<String> iterator = words.iterator();
 		String word = null;
-		while(iterator.hasNext()) {
+		while (iterator.hasNext()) {
 			word = iterator.next();
+			if (wordMap.containsKey(word))
+				wordMap.put(word, wordMap.get(word) + 1);
+			else
+				wordMap.put(word, 1);
 		}
-		return null;
+		return wordMap;
 	}
-
 }
