@@ -21,13 +21,14 @@ public class WordDensityAnalyzerImpl implements WordDensityAnalyzer {
 			if (topicsList.contains(new Topic(word))) {
 				int index = topicsList.indexOf(topic);
 				topic = topicsList.get(index);
-				topic.setFrequency(topic.getFrequency()+1);
+				topic.setFrequency(topic.getFrequency() + 1);
 				topicsList.set(index, topic);
-			}
-			else
-				topicsList.add(new Topic(word,1));
+			} else
+				topicsList.add(new Topic(word, 1));
 		}
-		Collections.sort(topicsList,Collections.reverseOrder());
+		Collections.sort(topicsList, Collections.reverseOrder());
+		if(topicsList.size() > 15)
+			topicsList = topicsList.subList(0, 15);
 		return topicsList;
 	}
 }
