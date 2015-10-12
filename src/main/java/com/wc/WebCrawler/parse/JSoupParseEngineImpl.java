@@ -20,7 +20,7 @@ public class JSoupParseEngineImpl implements ParseEngine {
 	public Collection<String> getWords(String URL) throws IOException {
 		Document document = null;
 
-		Connection connection = Jsoup.connect("https://en.wikipedia.org/wiki/James_Gosling")
+		Connection connection = Jsoup.connect(URL)
 				.userAgent(WebCrawlerConstants.USER_AGENT).timeout(WebCrawlerConstants.TIMEOUT_INTERVAL);
 		Response response = connection.execute();
 		if (response.statusCode() == WebCrawlerConstants.HTTP_OK_STATUS) {
