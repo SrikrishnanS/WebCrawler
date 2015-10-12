@@ -1,28 +1,33 @@
 package com.wc.WebCrawler.analyzer;
 
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
+import java.util.Collections;
 import java.util.Iterator;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.List;
 
-import com.wc.WebCrawler.util.ValueComparator;
+import com.wc.WebCrawler.model.Topic;
 
 public class WordDensityAnalyzerImpl implements WordDensityAnalyzer {
 
-	public Map<String, Integer> getWordDensity(Collection<String> words) {
-		Map<String, Integer> wordMap = new HashMap<String, Integer>();
+	public List<Topic> getWordDensity(Collection<String> words) {
+		List<Topic> topicsList = new ArrayList<Topic>();
 		Iterator<String> iterator = words.iterator();
 		String word = null;
+		Topic topic = null;
 		while (iterator.hasNext()) {
 			word = iterator.next();
-			if (wordMap.containsKey(word))
-				wordMap.put(word, wordMap.get(word) + 1);
+			topic = new Topic(word);
+			if (topicsList.contains(new Topic(word))) {
+				int index = topicsList.indexOf(topic);
+				topic = topicsList.get(index);
+				topic.setFrequency(topic.getFrequency()+1);
+				topicsList.set(index, topic);
+			}
 			else
-				wordMap.put(word, 1);
+				topicsList.add(new Topic(word,1));
 		}
-		Map<String,Integer> sortedMap = new TreeMap<String,Integer>(new ValueComparator(wordMap));
-		sortedMap.putAll(wordMap);
-		return sortedMap;
+		Collections.sort(topicsList,Collections.reverseOrder());
+		return topicsList;
 	}
 }

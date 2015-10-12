@@ -1,8 +1,10 @@
 package com.wc.WebCrawler.analyzer;
 
 import java.util.Collection;
-import java.util.Map;
+import java.util.List;
+
+import com.wc.WebCrawler.model.Topic;
 
 public interface WordDensityAnalyzer {
-	public Map<String,Integer> getWordDensity(Collection<String> words);
+	public List<Topic> getWordDensity(Collection<String> words);
 }

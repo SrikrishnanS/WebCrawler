@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 public class StringUtils {
 	public static String getWholeWord(String input) {
 		String output = null;
-		Pattern p = Pattern.compile("\\p{L}+(?:\\-\\p{L}+)*");
+		Pattern p = Pattern.compile("((\\p{Alpha})+(\\-)*(\\p{Alnum})*)|(((\\p{Alnum})*(\\-)*(\\p{Alpha})+))");
 		Matcher m = p.matcher(input);
 		if(m.find())
 			output = m.group();
