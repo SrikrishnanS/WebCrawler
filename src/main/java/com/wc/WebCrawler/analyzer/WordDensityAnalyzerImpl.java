@@ -4,6 +4,9 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.TreeMap;
+
+import com.wc.WebCrawler.util.ValueComparator;
 
 public class WordDensityAnalyzerImpl implements WordDensityAnalyzer {
 
@@ -18,6 +21,8 @@ public class WordDensityAnalyzerImpl implements WordDensityAnalyzer {
 			else
 				wordMap.put(word, 1);
 		}
-		return wordMap;
+		Map<String,Integer> sortedMap = new TreeMap<String,Integer>(new ValueComparator(wordMap));
+		sortedMap.putAll(wordMap);
+		return sortedMap;
 	}
 }

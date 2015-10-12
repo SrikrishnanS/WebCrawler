@@ -3,7 +3,7 @@ package com.wc.WebCrawler;
 import java.io.IOException;
 
 /**
- * 
+ *  Starting point of the application
  *
  */
 public class App {
@@ -13,9 +13,7 @@ public class App {
 		AppClient client = new AppClient(URL);
 		try {
 			client.crawlWords();
-			client.displayWordsList();
 			client.filterFrequentWords();
-			client.displayWordsList();
 			client.findWordDensity();
 			client.displayWordDensity();
 		}

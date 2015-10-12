@@ -1,5 +1,10 @@
 package com.wc.WebCrawler;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+
+import com.wc.WebCrawler.filter.FrequentWordsFilterImpl;
 import com.wc.WebCrawler.util.StringUtils;
 
 import junit.framework.Test;
@@ -74,5 +79,12 @@ public class AppTest extends TestCase {
 		expected = "Test";
 		actual = StringUtils.getWholeWord(input);
 		assertEquals(expected, actual);
-	}	
+	}
+	
+	public void testStringRemovalFromFrequentWords() {
+		Collection<String> inputList = new ArrayList<String>(Arrays.asList(new String[]{"this","Stripe","also","well","Light"}));
+		Collection<String> expected = new ArrayList<String>(Arrays.asList(new String[]{"Stripe","Light"}));
+		Collection<String> actual = new FrequentWordsFilterImpl().filterWordList(inputList);
+		assertEquals(expected, actual);
+	}
 }
