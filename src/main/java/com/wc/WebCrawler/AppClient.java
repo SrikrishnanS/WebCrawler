@@ -42,7 +42,8 @@ public class AppClient {
 	}
 
 	public void displayWordDensity() {
-		System.out.println(wordDensity);
+		for(Topic topic : wordDensity)
+			System.out.println(topic);
 	}
 
 	

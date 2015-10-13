@@ -15,6 +15,12 @@ import org.jsoup.select.Elements;
 import com.wc.WebCrawler.util.StringUtils;
 import com.wc.WebCrawler.util.WebCrawlerConstants;
 
+/**
+ * JSoup implementation of the parse engine.
+ * 
+ * @author srikrishnan_suresh
+ * @version 1.0
+ */
 public class JSoupParseEngineImpl implements ParseEngine {
 
 	public Collection<String> getWords(String URL) throws IOException {

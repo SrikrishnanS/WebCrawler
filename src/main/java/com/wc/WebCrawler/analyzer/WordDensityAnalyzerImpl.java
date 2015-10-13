@@ -8,8 +8,22 @@ import java.util.List;
 
 import com.wc.WebCrawler.model.Topic;
 
+/**
+ * An implementation of Word Density Analyzer.
+ * 
+ * @author srikrishnan_suresh
+ * @version 1.0
+ */
 public class WordDensityAnalyzerImpl implements WordDensityAnalyzer {
 
+	/**
+	 * Iterates over the collection of words and calculates the density.
+	 * Retrieves the top 15 dense words.
+	 * 
+	 * @param words
+	 *            A collection of words to be analyzed
+	 * @return A list of topics analyzed.
+	 */
 	public List<Topic> getWordDensity(Collection<String> words) {
 		List<Topic> topicsList = new ArrayList<Topic>();
 		Iterator<String> iterator = words.iterator();
@@ -27,7 +41,7 @@ public class WordDensityAnalyzerImpl implements WordDensityAnalyzer {
 				topicsList.add(new Topic(word, 1));
 		}
 		Collections.sort(topicsList, Collections.reverseOrder());
-		if(topicsList.size() > 15)
+		if (topicsList.size() > 15)
 			topicsList = topicsList.subList(0, 15);
 		return topicsList;
 	}

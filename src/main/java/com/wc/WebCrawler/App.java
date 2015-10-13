@@ -3,7 +3,8 @@ package com.wc.WebCrawler;
 import java.io.IOException;
 
 /**
- *  Starting point of the application
+ *  Starting point of the application.
+ *  Invokes the client to fetch and display results
  *
  */
 public class App {

@@ -5,6 +5,14 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
+/**
+ * An implementation of words filter. This implementation filters the words
+ * based on common words. The filter removes the common words and returns the
+ * collection.
+ * 
+ * @author srikrishnan_suresh
+ * @version 1.0
+ */
 public final class FrequentWordsFilterImpl implements WordsFilter {
 
 	private static final List<String> COMMON_WORDS = new ArrayList<String>(Arrays.asList(new String[] { "the", "be",
